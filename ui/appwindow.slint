@@ -1,17 +1,15 @@
 import { Button, VerticalBox } from "std-widgets.slint";
 
-export component AppWindow inherits Window {
-    in-out property<int> counter: 42;
-    callback request-increase-value();
-    VerticalBox { 
+
+export component MainWindow inherits Window {
+    in-out property<string> time: "12:34:56";
+    callback timechange();
+    width: 3440px;
+    height: 40px;
+    title: "holybar";
+    HorizontalLayout {
         Text {
-            text: "Counter: \{root.counter}";
+            text: "\{root.time}";
         }
-        Button {
-            text: "Increase value";
-            clicked => { 
-                root.request-increase-value();
-            }
-        }
-     }
+    }
 }
