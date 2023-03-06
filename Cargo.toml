@@ -8,8 +8,10 @@ build = "build.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-slint = "0.3.5"
+slint = {version = "0.3.5", features = ["backend-winit"]}
 chrono = "0.4.23"
+winit = "0.28.2"
+sysinfo = "0.28.2"
 
 [build-dependencies]
 slint-build = "0.3.5"

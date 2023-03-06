@@ -1,0 +1,65 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+
+
+export MainWindow := Window {
+    in-out property<string> time: "12:34:56";
+    in-out property<string> updata: "up: 127 B";
+    in-out property<string> downdata: "down: 127 B";
+    in-out property<string> cpu: "CPU: 23%";
+    in-out property<string> ram: "RAM: 1%";
+    callback timechange();
+    width: 3240px;
+    height: 40px;
+    title: "holybar";
+    background: #32021F;
+     HorizontalLayout {
+        Text {
+            text: "RAM: \{root.ram}%";
+            horizontal-alignment: right;
+            vertical-alignment: center;
+            padding-right: 10px;
+        }
+        padding-right: 480px;
+     }
+     HorizontalLayout {
+        Text {
+            text: "CPU: \{root.cpu}%";
+            horizontal-alignment: right;
+            vertical-alignment: center;
+            padding-right: 10px;
+        }
+        padding-right: 380px;
+     }
+
+    HorizontalLayout { 
+        Text { 
+            text: "UP: \{root.updata}KB/s";
+            horizontal-alignment: right;
+            vertical-alignment: center;
+            padding-right: 10px;
+        }
+        padding-right: 280px;
+     }
+    HorizontalLayout {
+        Text {
+            text: "DOWN: \{root.downdata}KB/s";
+            horizontal-alignment: right;
+            vertical-alignment: center;
+            padding-right: 10px;
+        }
+        padding-right: 120px;
+     }
+    HorizontalLayout { 
+        
+        Text {
+            text: "\{root.time}";
+            color: #6C596E;
+            font-size: 20px;
+            vertical-alignment: center;
+            horizontal-alignment: right;
+            padding-right: 50px;
+        }
+        padding-right: 10px;
+     }
+    
+}

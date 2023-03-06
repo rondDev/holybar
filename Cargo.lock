@@ -9,6 +9,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fe438c63458706e03479442743baae6c88256498e6431708f6dfc520a26515d3"
 
 [[package]]
+name = "ab_glyph"
+version = "0.2.20"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fe21446ad43aa56417a767f3e2f3d7c4ca522904de1dd640529a76e9c5c3b33c"
+dependencies = [
+ "ab_glyph_rasterizer",
+ "owned_ttf_parser",
+]
+
+[[package]]
+name = "ab_glyph_rasterizer"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c71b1793ee61086797f5c80b6efa2b8ffa6d5dd703f118545808a7f2e27f7046"
+
+[[package]]
 name = "adler"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1439,6 +1455,8 @@ dependencies = [
  "chrono",
  "slint",
  "slint-build",
+ "sysinfo",
+ "winit 0.28.2",
 ]
 
 [[package]]
@@ -2160,6 +2178,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "ntapi"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bc51db7b362b205941f71232e56c625156eb9a929f8cf74a428fd5bc094a4afc"
+dependencies = [
+ "winapi",
+]
+
+[[package]]
 name = "num-integer"
 version = "0.1.45"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2349,6 +2376,15 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "owned_ttf_parser"
+version = "0.18.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e25e9fb15717794fae58ab55c26e044103aad13186fbb625893f9a3bbcc24228"
+dependencies = [
+ "ttf-parser 0.18.1",
 ]
 
 [[package]]
@@ -2853,6 +2889,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "sctk-adwaita"
+version = "0.5.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cc56402866c717f54e48b122eb93c69f709bc5a6359c403598992fd92f017931"
+dependencies = [
+ "ab_glyph",
+ "log",
+ "memmap2",
+ "smithay-client-toolkit",
+ "tiny-skia",
+]
+
+[[package]]
 name = "semver"
 version = "1.0.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3191,6 +3240,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "sysinfo"
+version = "0.28.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d3e847e2de7a137c8c2cede5095872dbb00f4f9bf34d061347e36b43322acd56"
+dependencies = [
+ "cfg-if 1.0.0",
+ "core-foundation-sys",
+ "libc",
+ "ntapi",
+ "once_cell",
+ "rayon",
+ "winapi",
+]
+
+[[package]]
 name = "tar"
 version = "0.4.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3389,6 +3453,12 @@ name = "ttf-parser"
 version = "0.17.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "375812fa44dab6df41c195cd2f7fecb488f6c09fbaafb62807488cefab642bff"
+
+[[package]]
+name = "ttf-parser"
+version = "0.18.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0609f771ad9c6155384897e1df4d948e692667cc0588548b68eb44d052b27633"
 
 [[package]]
 name = "typenum"
@@ -4020,7 +4090,12 @@ dependencies = [
  "percent-encoding",
  "raw-window-handle 0.5.0",
  "redox_syscall 0.3.4",
+ "sctk-adwaita",
+ "smithay-client-toolkit",
  "wasm-bindgen",
+ "wayland-client",
+ "wayland-commons",
+ "wayland-protocols",
  "wayland-scanner",
  "web-sys",
  "windows-sys 0.45.0",
